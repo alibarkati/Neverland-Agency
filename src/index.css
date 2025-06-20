@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url(/fonts/PlayfairDisplay-Regular.woff2);
+}
+@font-face {
+    font-family: 'Roobert Regular';
+    src: url(/fonts/Roobert-Regular.woff2);
+}
+@font-face {
+    font-family: 'Roobert Bold';
+    src: url(/fonts/Roobert-Bold.woff2);
+}
+:root{
+    --box-width: 1280px;
+
+    --pink: rgb(227, 134, 156);
+}
+@media (max-width: 1280px){
+    :root{
+    --box-width: calc(100% - 20px);
+}
+}
+@media (max-width: 1024px){
+    :root{
+    --box-width: 100%;
+}
+}
+.playfair{
+    font-family: 'Playfair Display';
+}
+.roobert-r{
+    font-family: 'Roobert Regular';
+}
+.roobert-b{
+    font-family: 'Roobert Bold';
+}
+body{
+    background: #fffaf0;
+}
+header .header{
+  transition: opacity 0.3s ease;
+  pointer-events: all; /* allow hover */
+}
+
+header .header:hover {
+  opacity: 1 !important;
+}
+.expanded-menu .header{
+    opacity: 1 !important;
+}
+.menu-email::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 0.125rem;
+  width: 100%;
+  background-color: rgb(227 134 156);
+  transform: translateX(-100%);
+  animation: underlineMove 6s linear infinite;
+}
+
+@keyframes underlineMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* .menu-email::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: .125rem;
+    width: 100%;
+    background-color: rgb(227 134 156);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .5s;
+    transform: translate(calc(-100% + 2rem));
+}
+.menu-email:hover::after{
+    transform: translate(calc(100% - 2rem));
+} */
+
+header.expanded-menu .logo path{
+    fill: #000;
+}
+header.expanded-menu button.toggle > div{
+    background: #000;
+}
+
+.fairy-cursor{
+    transition: mix-blend-mode ease 0.2s,
+                background ease 0.2s,
+                width ease 0.2s,
+                height ease 0.2s;
+}
+
+.fairy-cursor.pop-overlay{
+    mix-blend-mode: overlay;
+    background: #f60303 !important;
+}
+.fairy-cursor[class*="pop"]{
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+}
